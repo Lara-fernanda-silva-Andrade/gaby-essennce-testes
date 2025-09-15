@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peça sua Arte</title>
+    <link rel="stylesheet" href="../css/peca_sua_arte.css">
+    <script src="../js/peca_sua_arte.js"></script>
+</head>
+<body>
+    <main>
+        <h1>Peça sua Arte</h1>
+
+        <form id="pedidoForm" class="pedidoForm">
+            <label for="titulo">Título do Pedido:</label>
+            <input type="text" id="titulo" name="titulo" required>
+
+            <label for="tipo">Tipo de Arte:</label>
+            <select id="tipo" name="tipo" required>
+                <option value="pintura">Pintura</option>
+                <option value="retrato">Retrato</option>
+                <option value="desenho">Desenho Digital</option>
+                <!-- Adicionar mais opções conforme necessário -->
+            </select>
+
+            <label for="formato">Formato:</label>
+            <select id="formato" name="formato" required>
+                <option value="A4">A4</option>
+                <option value="A3">A3</option>
+                <option value="A5">A5</option>
+                <!-- Adicionar mais opções conforme necessário -->
+            </select>
+
+            <label for="descricao">Descrição:</label>
+            <textarea id="descricao" name="descricao" required></textarea>
+
+            <label for="dataEntrega">Data de Entrega:</label>
+            <input type="date" id="dataEntrega" name="dataEntrega" required>
+
+            <button type="submit">Enviar Pedido</button>
+        </form>
+
+        <p><a href="meus_pedidos.html">Ver meus pedidos</a></p>
+
+        <section class="menuvertical" id="menuvertical">
+            <nav>
+              <button onclick="location.href='index.html'">&star;Home</button>
+              <button onclick="location.href='portifolio.html'">
+                &star;Portifólio
+              </button>
+              <div class="local" id="local"><button>&star;Arte Delivery</button></div>
+              <button onclick="location.href='sobre.html'">&star;Sobre</button>
+              <button id="btnPainel" style="display:none;" onclick="location.href='painel.html'">&star; Painel</button>
+            </nav>
+          </section>
+
+    </main>
+    
+</body>
+</html>

@@ -1,0 +1,159 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+/* Estilo base */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #eabbff;
+    color: #2d3142;
+    text-align: center;
+    position: relative;
+}
+
+/* Conteúdo principal */
+main {
+    margin-top: 50px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto; /* Centraliza o conteúdo */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Título */
+h1 {
+    font-size: 36px;
+    color: #6c63ff;
+}
+
+/* Formulário */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* Campos do formulário */
+label {
+    font-size: 16px;
+    color: #2d3142;
+    margin-bottom: 5px;
+}
+
+input, select, textarea {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Garantir que o textarea tenha uma altura mínima */
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.menuvertical {
+    background-color: #ffffff;
+    width: 120px;
+    list-style: none;
+    padding-top: 20px;
+    margin: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    box-shadow: 5px 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 0 20px;
+  }
+  
+  .menuvertical button {
+    padding: 12px 20px;
+    background-color: #6c63ff;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 20px auto;
+    display: inline-block;
+    margin-top: 30%;
+    margin-right: 64.8%;
+    margin: 20px 0;
+    color: #5e60ce;
+    font-weight: bold;
+    background-color: #dfe0ff;
+    border-radius: 5px;
+    padding: 12px 0;
+    /* ← AQUI você controla o "tamanho" do fundo */
+    width: 80%;
+    /* ← ou use width se quiser uma largura fixa */
+    text-align: center;
+
+  }
+
+  .menuvertical button:hover {
+    color: #dfe0ff;
+    background-color: #5e60ce;
+  }
+  
+  .local button {
+    background-color: #5e60ce;
+    color: #dfe0ff;
+  }
+  
+  /* Botões fora do menu */
+  .pedidoForm button, #logoutBtn {
+    padding: 12px 20px;
+    background-color: #6c63ff;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .pedidoForm button:hover, #logoutBtn:hover {
+    background-color: #5e60ce;
+  }
+/* Link para ver pedidos */
+p {
+    margin-top: 30px;
+}
+
+a {
+    color: #6c63ff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Botão de logout */
+#logoutBtn {
+    padding: 10px 20px;
+    background-color: #ff4c4c;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+#logoutBtn:hover {
+    background-color: #e04d4d;
+}

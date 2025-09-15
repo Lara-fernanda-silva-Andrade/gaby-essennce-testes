@@ -1,0 +1,201 @@
+/* Reset padrão */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo base */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #eabbff;
+    color: #2d3142;
+    text-align: center;
+}
+
+
+/* Títulos principais */
+h1 {
+    font-size: 36px;
+    color: #6c63ff;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.gaby img {
+    max-width: 500px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    display: block;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+img:hover {
+    transform: scale(1.02);
+    margin: 25px auto 15px;
+    border-radius: 12px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+
+/* Texto normal */
+.resumo {
+    display: flex;
+    font-size: 18px;
+    margin-bottom: 22px;
+    color: #000000;
+    justify-content: center;
+    align-items: center;
+    bottom: 50px;
+    max-width: 1240px;
+    line-height: 1.7;
+    margin: 0px auto;
+    text-align: justify;
+    padding-bottom: 100px;
+    flex-direction: column;
+}
+
+.resumo p {
+    margin-bottom: 20px;
+}
+
+
+.old {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.old img {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+}
+
+.conquistas {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.conquistas img {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+}
+
+/* Linha decorativa */
+hr {
+    border: none;
+    height: 2px;
+    background: linear-gradient(to right, #6c63ff, #a0c4ff);
+    margin: 30px 0;
+    border-radius: 1px;
+}
+
+/* Responsivo para telas pequenas */
+@media (max-width: 600px) {
+    body {
+        padding: 20px 15px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+}
+
+/* Menu Vertical */
+.menuvertical {
+    background-color: #ffffff;
+    width: 120px;
+    list-style: none;
+    padding-top: 20px;
+    margin: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    box-shadow: 5px 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 0 20px;
+}
+
+.menuvertical button {
+    margin: 20px 0;
+    color: #5e60ce;
+    font-weight: bold;
+    background-color: #dfe0ff;
+    border-radius: 5px;
+    padding: 12px 0;
+    /* ← AQUI você controla o "tamanho" do fundo */
+    width: 80%;
+    /* ← ou use width se quiser uma largura fixa */
+    text-align: center;
+}
+
+.menuvertical button:hover {
+    color: #dfe0ff;
+}
+
+.local button {
+    background-color: #5e60ce;
+    color: #dfe0ff;
+}
+
+/* Botão */
+button {
+    padding: 12px 20px;
+    background-color: #6c63ff;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 20px auto;
+    display: inline-block;
+    margin-top: 30%;
+    margin-right: 64.8%;
+}
+
+button:hover {
+    background-color: #5e60ce;
+}
+
+
+/* Rodapé fixo */
+footer {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #b7bcfa;
+    color: white;
+    text-align: center;
+}
+
+footer a {
+    color: #5e60ce;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}

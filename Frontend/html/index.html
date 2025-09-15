@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Essência de Gaby</title>
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+
+<body>
+    <!-- Seção Lobo -->
+    <section class="lobo" id="lobo">
+        <img src="../img/width_1120.webp" alt="lobo">
+    </section>
+
+    <!-- Logo -->
+    <section class="logo" id="logo">
+        <img src="../img/logo.png" alt="logo">
+    </section>
+
+    <!-- Menu vertical -->
+    <header>
+        <section class="menuvertical" id="menuvertical">
+            <nav>
+                <div class="local" id="local">
+                    <button>&star;Home</button>
+                </div>
+                <button onclick="location.href='portifolio.html'">&star;Portifólio</button>
+                <button onclick="location.href='peca_sua_arte.html'">&star;Arte Delivery</button>
+                <button onclick="location.href='sobre.html'">&star;Sobre</button>
+                <button id="btnPainel" style="display:none;" onclick="location.href='painel.html'">&#9733; Painel</button>
+            </nav>
+
+            <script>
+              function verificarPainel() {
+                const tipo = localStorage.getItem("tipo");
+            
+                if (tipo === "1") {
+                  document.getElementById("btnPainel").style.display = "inline-block";
+                } else {
+                  document.getElementById("btnPainel").style.display = "none";
+                }
+              }
+            
+              verificarPainel();
+            </script>
+
+        </section>
+    </header>
+
+    <!-- Modal Login -->
+    <div id="modalLogin" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="fecharModal('modalLogin')">&times;</span>
+            <h2>Login</h2>
+            <form id="loginForm">
+                <input type="email" id="loginEmail" placeholder="E-mail" required>
+                <input type="password" id="loginSenha" placeholder="Senha" required>
+                <button type="button" onclick="loginUsuario()">Entrar</button>
+                <button type="button" class="alternar">Não possui conta</button>
+                <div id="loginMessage" style="text-align: center; margin-top: 15px;"></div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Cadastro -->
+    <div id="modalCadastro" class="modal">
+        <div class="modal-content">
+          <form id="register">
+            <span class="close-btn" onclick="fecharModal('modalCadastro')">&times;</span>
+            <h2>Cadastro</h2>
+      
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" name="nome" required>
+      
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+      
+            <label for="senha">Senha</label>
+            <input type="password" id="senha" name="senha" required>
+      
+            <button type="button" onclick="cadastrarUsuario()">Cadastrar</button>
+            <button id="btnAlternar" type="button" class="alternar">Já possui conta</button>
+          </form>
+        </div>
+      </div>
+
+    <!-- Conteúdo principal -->
+    <main>
+        <section class="logo">
+            <button><a href="portifolio.html">Acesse meu Portifólio</a></button>
+        </section>
+
+        <div id="userBox" class="user-box">👤 Convidado</div>
+        <div id="userMenu" class="user-menu">
+          <button id="logoutBtn">Logout</button>
+        </div>
+
+        <!-- Botão que muda dinamicamente -->
+
+<!-- Menu do usuário -->
+<div id="userMenu" class="menu">
+  <button id="logoutBtn">Logout</button>
+</div>
+
+<script>
+  const userBox = document.getElementById("userBox");
+  const userMenu = document.getElementById("userMenu");
+  const logoutBtn = document.getElementById("logoutBtn");
+
+  // Atualizar o botão
+  function atualizarUserBox() {
+    const user = localStorage.getItem("nome");
+
+    if (user) {
+      userBox.textContent = "👤 " + user ;
+    } else {
+      userBox.textContent = "Faça seu login";
+    }
+  }
+
+  atualizarUserBox();
+
+  // Clique no botão principal
+  userBox.addEventListener("click", () => {
+    const user = localStorage.getItem("nome");
+
+    if (user) {
+      // Se já está logado -> abre menu
+      userMenu.classList.toggle("show");
+    } else {
+      // Se não está logado -> abre modal
+      abrirModal("modalLogin");
+    }
+  });
+</script>
+
+
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+        <a href="https://wa.me/553158589656">📞(33) 95671-8762</a>
+        <a href="susto.html">✖️ @essenciadegaby</a>
+    </footer>
+
+    <script src="../js/index.js"></script>
+</body>
+
+<script>
+  function atualizarPainel() {
+      const tipo = localStorage.getItem("tipo");
+      if (tipo == 1) {
+          document.getElementById("btnPainel").style.display = "inline-block";
+      } else {
+          document.getElementById("btnPainel").style.display = "none";
+      }
+  }
+  
+  // Executa quando a página carrega
+  window.addEventListener("DOMContentLoaded", atualizarPainel);
+  </script>
+
+</html>

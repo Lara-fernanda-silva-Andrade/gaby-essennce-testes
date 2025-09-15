@@ -1,0 +1,463 @@
+/* ================================
+   RESET & ESTILO BASE
+=================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #eabbff;
+  color: #2d3142;
+  text-align: center;
+  position: relative;
+}
+
+h2 {
+  font-size: 28px;
+  color: #6c63ff;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+hr {
+  border: none;
+  height: 2px;
+  background: linear-gradient(to right, #6c63ff, #a0c4ff);
+  margin: 20px auto;
+  width: 60%;
+}
+
+/* ================================
+   LAYOUT
+=================================== */
+main {
+  margin-left: 200px; /* espaço fixo para o menu vertical */
+  padding: 20px;
+}
+
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  display: none; /* começa fechado */
+  justify-content: center;
+  align-items: center;
+  background: rgba(0,0,0,0.6);
+  z-index: 1000;
+}
+
+/* Caixa do modal */
+.modal-content {
+  background: #fff;
+  padding: 25px 30px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  position: relative;
+  animation: aparecer 0.3s ease;
+}
+
+/* Animação de entrada */
+@keyframes aparecer {
+  from { transform: scale(0.9); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+
+/* Botão de fechar (X) */
+.close-btn {
+  position: absolute;
+  top: 10px; right: 15px;
+  font-size: 22px;
+  color: #555;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.close-btn:hover {
+  color: #e74c3c;
+}
+
+/* Título */
+.modal-content h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 22px;
+  color: #333;
+}
+
+/* Labels */
+.modal-content label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #444;
+}
+
+/* Inputs */
+.modal-content input {
+  width: 80%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  transition: border 0.3s;
+}
+
+.modal-content input:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 4px rgba(52, 152, 219, 0.3);
+}
+
+/* Botões */
+.modal-content button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 8px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.modal-content button[type="submit"] {
+  background: #ac34db;
+  color: #fff;
+}
+
+.modal-content button[type="submit"]:hover {
+  background: #2980b9;
+}
+
+.modal-content button.alternar {
+  background: #f1f1f1;
+  color: #333;
+}
+
+.user-box {
+  position: fixed;
+  top: 80px;
+  right: 100px;
+  background: linear-gradient(145deg, #ac34db, #6c1a8d);
+  color: #fff;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 10px #000;
+  font-size: 16px;
+  z-index: 1000;
+  cursor: pointer;
+}
+
+.user-box:hover {
+background: linear-gradient(145deg, #7a249c, #4a0f61);
+transform: translateY(-2px);
+box-shadow: 3px 3px 8px #000;
+}
+
+/* Menu escondido por padrão */
+.user-menu {
+display: none;
+position: fixed;
+top: 120px; /* abaixo do userBox */
+right: 100px;
+gap: 10px;
+}
+
+.user-menu button {
+padding: 5px 10px;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+background-color: #eee;
+font-weight: bold;
+}
+
+.user-menu button:hover {
+background-color: #ccc;
+}
+
+/* Exibe menu */
+.user-menu.show {
+display: flex;
+flex-direction: row;
+}
+
+.user-menu {
+display: none; /* escondido por padrão */
+margin-top: 5px;
+gap: 10px; /* espaço entre botões */
+}
+
+.user-menu button {
+padding: 5px 10px;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+background-color: #ddd;
+}
+
+.user-menu button:hover {
+background-color: #ccc;
+}
+
+/* Exibir em linha */
+.user-menu.show {
+display: flex;
+flex-direction: row;
+}
+
+#logoutBtn {
+padding: 8px 15px;
+background: linear-gradient(145deg, #ac34db, #6c1a8d);
+color: #fff;
+font-weight: bold;
+border: none;
+border-radius: 8px;
+cursor: pointer;
+box-shadow: 2px 2px 6px #000;
+transition: all 0.2s ease;
+}
+
+#logoutBtn:hover {
+background: linear-gradient(145deg, #7a249c, #4a0f61);
+transform: translateY(-2px);
+box-shadow: 3px 3px 8px #000;
+}
+
+.modal-content button.alternar:hover {
+  background: #ddd;
+}
+
+#modalLogin {
+  display: flex; /* começa visível */
+}
+#modalCadastro {
+  display: none; /* começa escondido */
+}
+
+section {
+  margin-bottom: 40px;
+}
+
+/* ================================
+   MENU VERTICAL (HEADER LATERAL)
+=================================== */
+/* Menu Vertical */
+.menuvertical {
+  background-color: #ffffff;
+  width: 120px;
+  list-style: none;
+  padding-top: 20px;
+  margin: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  box-shadow: 5px 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 0 20px;
+}
+
+.menuvertical button {
+  margin: 20px 0;
+  color: #5e60ce;
+  font-weight: bold;
+  background-color: #dfe0ff;
+  border-radius: 5px;
+  padding: 12px 0;
+  /* ← AQUI você controla o "tamanho" do fundo */
+  width: 80%;
+  /* ← ou use width se quiser uma largura fixa */
+  text-align: center;
+}
+
+
+.local button {
+background-color: #5e60ce;
+color: #dfe0ff;
+}
+
+.menuvertical button:hover {
+  color: #dfe0ff;
+}
+
+button {
+  padding: 12px 20px;
+  background-color: #6c63ff;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 20px auto;
+  display: inline-block;
+  margin-top: 30%;
+  margin-right: 64.8%;
+}
+
+button:hover {
+  background-color: #5e60ce;
+}
+
+/* Estilo geral da seção de projetos - Layout em Lista Vertical */
+#trabalho-container {
+  display: flex;
+  flex-direction: column; /* Organiza os itens um em cima do outro */
+  gap: 50px; /* Espaço maior entre os itens */
+  padding: 40px;
+  max-width: 800px; /* Limita a largura para que os cards não fiquem gigantes */
+  margin: 0 auto; /* Centraliza a coluna de cards */
+}
+
+/* Estilização de cada item de projeto */
+.projeto-item {
+  position: relative; /* Essencial para o posicionamento do overlay */
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+/* Efeito ao passar o mouse */
+.projeto-item:hover {
+  transform: scale(1.02); /* Aumenta levemente o card no hover */
+}
+
+/* Estilo da imagem do projeto */
+.projeto-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Estilo do Overlay (fundo que aparece no hover) */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Fundo preto semi-transparente */
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  opacity: 0; /* Esconde o overlay por padrão */
+  transition: opacity 0.5s ease; /* Animação suave */
+  text-align: center;
+}
+
+/* Estilo para mostrar o overlay no hover */
+.projeto-item:hover .overlay {
+  opacity: 1; /* Mostra o overlay quando o mouse passa por cima */
+}
+
+/* Estilo do título dentro do overlay */
+.overlay h3 {
+  font-size: 2.5em; /* Título maior */
+  margin-bottom: 10px;
+  /* Garante que o título esteja sempre visível, mesmo sem hover */
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.5s ease;
+}
+
+/* Esconde a descrição e o botão por padrão */
+.overlay p,
+.overlay a {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Animação para a descrição e o botão no hover */
+.projeto-item:hover .overlay p,
+.projeto-item:hover .overlay a {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Estilo do link (botão) dentro do overlay */
+.overlay a {
+  padding: 12px 30px;
+  background-color: #6c63ff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  margin-top: 20px;
+}
+
+.overlay a:hover {
+  background-color: #5e60ce;
+}
+
+/* Estilo para telas menores */
+@media (max-width: 768px) {
+  #trabalho-container {
+    gap: 30px;
+    padding: 20px;
+  }
+  .overlay h3 {
+    font-size: 1.8em;
+  }
+}
+
+/* Rodapé fixo */
+footer {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 20px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #b7bcfa;
+  color: white;
+  text-align: center;
+  margin-left: 120px; /* Ajusta a posição para o lado do menu */
+}
+
+footer a {
+  color: #5e60ce;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Media Queries para responsividade */
+@media (max-width: 768px) {
+  /* No mobile, o menu vertical pode virar um menu horizontal no topo */
+  .menuvertical {
+    position: static;
+    width: 100%;
+    border-radius: 0;
+    flex-direction: row;
+    justify-content: space-around;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  body {
+    margin-left: 0; /* Remove a margem no mobile */
+  }
+
+  footer {
+    position: static;
+    margin-left: 0;
+  }
+}
