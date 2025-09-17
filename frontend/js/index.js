@@ -69,7 +69,6 @@ window.addEventListener("dblclick", (event) => {
     const nome = document.getElementById('nome').value;
     const email = document.getElementById('email').value;
     const senha = document.getElementById('senha').value;
-    const tipo = document.getElementById('tipo').value;
   
     if (!nome || !email || !senha) {
       alert('Por favor, preencha todos os campos!');
@@ -98,9 +97,7 @@ window.addEventListener("dblclick", (event) => {
   }
 
   async function loginUsuario() {
-
-    
-
+    const form = document.getElementById('login');
     const email = document.getElementById('loginEmail').value;
     const senha = document.getElementById('loginSenha').value;
   
@@ -124,6 +121,8 @@ window.addEventListener("dblclick", (event) => {
       localStorage.setItem("nome", resultado.usuario.nome);
 
       localStorage.setItem("tipo", resultado.usuario.tipo);
+
+      localStorage.setItem("userId", resultado.usuario.id);
   
       alert('Login realizado com sucesso!');
       fecharModal('modalLogin');
