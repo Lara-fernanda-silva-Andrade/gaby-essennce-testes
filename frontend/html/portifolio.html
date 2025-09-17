@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfólio</title>
+  <link rel="stylesheet" href="../css/global.css">
   <link rel="stylesheet" href="../css/portifolio.css">
   <script src="../js/portifolio.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
@@ -12,19 +13,59 @@
 </head>
 
 <body>
-  <header>
-    <section class="menuvertical" id="menuvertical">
-      <nav>
-            <button onclick="location.href='index.html'">&star;Home</button>
-          <div class="local" id="local">
-          <button>&star;Portifólio</button>
+  <canvas id="bgCanvas"></canvas>
+    <header>
+      <section class="menuvertical" id="menuvertical">
+        <!-- Logo -->
+        <div class="menu-logo">
+          <img src="../img/logo.png" alt="Essência de Gaby" />
         </div>
-          <button onclick="location.href='peca_sua_arte.html'">&star;Arte Delivery</button>
-          <button onclick="location.href='sobre.html'">&star;Sobre</button>
-          <button id="btnPainel" style="display:none;" onclick="location.href='painel.html'">&star; Painel</button>
-      </nav>
-    </section>
-  </header>
+
+        <nav>
+          <button aria-label="Início" onclick="location.href='index.html'">
+            <!-- Lua (Home) -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
+              <path d="M21 12.79A9 9 0 0111.21 3c-.17 0-.34 0-.51.02a7 7 0 109.28 9.77c.02-.17.02-.34.02-.51z"/>
+            </svg>
+            <span>Home</span>
+          </button>
+
+          <button onclick="location.href='portifolio.html'" aria-label="Portfólio">
+            <!-- Pincel -->
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" width="22" height="22">
+              <path d="M2 22c0-4.97 4.03-9 9-9h1v1c0 4.97-4.03 9-9 9H2zm12.5-9.5L20 7l-3-3-5.5 5.5V12h3z"/>
+            </svg>
+            <span>Portfólio</span>
+          </button>
+
+          <button onclick="location.href='peca_sua_arte.html'" aria-label="Arte Delivery">
+            <!-- Caixa mágica -->
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" width="22" height="22">
+              <path d="M12 2l9 4.5-9 4.5L3 6.5 12 2zm9 11l-9 4.5v-9l9-4.5v9zm-18 0v-9l9 4.5v9L3 13z"/>
+              <circle cx="12" cy="20" r="2"/>
+            </svg>
+            <span>Arte Delivery</span>
+          </button>
+
+          <button onclick="location.href='sobre.html'" aria-label="Sobre">
+            <!-- Olho surreal -->
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" width="22" height="22">
+              <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17a5 5 0 110-10 5 5 0 010 10z"/>
+              <circle cx="12" cy="12" r="2.5"/>
+            </svg>
+            <span>Sobre</span>
+          </button>
+
+          <button id="btnPainel" style="display: none" onclick="location.href='painel.html'" aria-label="Painel">
+            <!-- Quebra-cabeça -->
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" width="22" height="22">
+              <path d="M22 13h-3v-2h3v2zm-4 0h-2v-2h2v2zm-3 0H7V7h8v6zm-9 0H4v-2h2v2zm-3 0H2v-2h1v2z"/>
+            </svg>
+            <span>Painel</span>
+          </button>
+        </nav>
+      </section>
+    </header>
 
   <main>
 
@@ -117,10 +158,16 @@ if (user) {
         <div id="trabalho-container">
             </div>
     </section>
-  <footer>
-    <a href="https://wa.me/553158589656">📞 (33) 95671-8762</a>
-    <a href="susto.html">✖️ @essenciadegaby</a>
-  </footer>
+
+  
+<footer class="footer">
+  <a href="https://wa.me/553158589656" class="footer-link">
+    📞 (33) 95671-8762
+  </a>
+  <a href="susto.html" class="footer-link">
+    ✖️ @essenciadegaby
+  </a>
+</footer>
 </body>
 
 </html>

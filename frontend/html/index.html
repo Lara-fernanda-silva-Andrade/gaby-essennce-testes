@@ -4,25 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Essência de Gaby</title>
+    <link rel="stylesheet" href="../css/global.css" />
     <link rel="stylesheet" href="../css/index.css" />
   </head>
 
   <body>
-    <!-- Seção Lobo -->
-    <section class="lobo" id="lobo">
-      <img src="../img/width_1120.webp" alt="lobo" />
-    </section>
-
-    <!-- Logo -->
-    <section class="logo" id="logo">
-      <img src="../img/logo.png" alt="logo" />
-    </section>
-
-    <!-- Menu vertical -->
+    <!-- Menu lateral -->
     <header>
       <section class="menuvertical" id="menuvertical">
+        <!-- Logo -->
+        <div class="menu-logo">
+          <img src="../img/logo.png" alt="Essência de Gaby" />
+        </div>
+
         <nav>
-          <button>
+          <button aria-label="Início" onclick="location.href='index.html'">
             <!-- Lua (Home) -->
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -38,8 +34,11 @@
             <span>Home</span>
           </button>
 
-          <button onclick="location.href='portifolio.html'">
-            <!-- Pincel (Portfólio) -->
+          <button
+            onclick="location.href='portifolio.html'"
+            aria-label="Portfólio"
+          >
+            <!-- Pincel -->
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="currentColor"
@@ -54,8 +53,11 @@
             <span>Portfólio</span>
           </button>
 
-          <button onclick="location.href='peca_sua_arte.html'">
-            <!-- Caixa mágica (Arte Delivery) -->
+          <button
+            onclick="location.href='peca_sua_arte.html'"
+            aria-label="Arte Delivery"
+          >
+            <!-- Caixa mágica -->
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="currentColor"
@@ -71,8 +73,8 @@
             <span>Arte Delivery</span>
           </button>
 
-          <button onclick="location.href='sobre.html'">
-            <!-- Olho surreal (Sobre) -->
+          <button onclick="location.href='sobre.html'" aria-label="Sobre">
+            <!-- Olho surreal -->
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="currentColor"
@@ -92,8 +94,9 @@
             id="btnPainel"
             style="display: none"
             onclick="location.href='painel.html'"
+            aria-label="Painel"
           >
-            <!-- Quebra-cabeça (Painel) -->
+            <!-- Quebra-cabeça -->
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="currentColor"
@@ -159,75 +162,54 @@
 
     <!-- Conteúdo principal -->
     <main>
-      <section class="logo">
-        <button><a href="portifolio.html">Acesse meu Portifólio</a></button>
-      </section>
-
+      <!-- Caixa do usuário -->
       <div id="userBox" class="user-box">👤 Convidado</div>
+
+      <!-- Menu do usuário -->
       <div id="userMenu" class="user-menu">
         <button id="logoutBtn">Logout</button>
       </div>
-
-      <!-- Botão que muda dinamicamente -->
-
-      <!-- Menu do usuário -->
-      <div id="userMenu" class="menu">
-        <button id="logoutBtn">Logout</button>
-      </div>
-
-      <script>
-        const userBox = document.getElementById("userBox");
-        const userMenu = document.getElementById("userMenu");
-        const logoutBtn = document.getElementById("logoutBtn");
-
-        // Atualizar o botão
-        function atualizarUserBox() {
-          const user = localStorage.getItem("nome");
-
-          if (user) {
-            userBox.textContent = "👤 " + user;
-          } else {
-            userBox.textContent = "Faça seu login";
-          }
-        }
-
-        atualizarUserBox();
-
-        // Clique no botão principal
-        userBox.addEventListener("click", () => {
-          const user = localStorage.getItem("nome");
-
-          if (user) {
-            // Se já está logado -> abre menu
-            userMenu.classList.toggle("show");
-          } else {
-            // Se não está logado -> abre modal
-            abrirModal("modalLogin");
-          }
-        });
-      </script>
     </main>
 
     <!-- Rodapé -->
-    <footer>
-      <a href="https://wa.me/553158589656">📞(33) 95671-8762</a>
-      <a href="susto.html">✖️ @essenciadegaby</a>
+    <footer class="footer">
+      <a href="https://wa.me/553158589656" class="footer-link">
+        📞 (33) 95671-8762
+      </a>
+      <a href="susto.html" class="footer-link"> ✖️ @essenciadegaby </a>
     </footer>
 
+    <!-- Scripts -->
     <script src="../js/index.js"></script>
-  </body>
-
-  <script>
-    function atualizarPainel() {
-      const tipo = localStorage.getItem("tipo");
-      if (tipo == 1) {
-        document.getElementById("btnPainel").style.display = "inline-block";
-      } else {
-        document.getElementById("btnPainel").style.display = "none";
+    <script>
+      function atualizarPainel() {
+        const tipo = localStorage.getItem("tipo");
+        if (tipo == 1) {
+          document.getElementById("btnPainel").style.display = "inline-block";
+        } else {
+          document.getElementById("btnPainel").style.display = "none";
+        }
       }
-    }
+      window.addEventListener("DOMContentLoaded", () => {
+        atualizarPainel();
+        atualizarUserBox();
+      });
 
-    // Executa quando a página carrega
-    window.addEventListener("DOMContentLoaded", atualizarPainel);
-  </script>
+      function atualizarUserBox() {
+        const userBox = document.getElementById("userBox");
+        const user = localStorage.getItem("nome");
+        userBox.textContent = user ? "👤 " + user : "Faça seu login";
+      }
+
+      document.getElementById("userBox").addEventListener("click", () => {
+        const user = localStorage.getItem("nome");
+        const userMenu = document.getElementById("userMenu");
+        if (user) {
+          userMenu.classList.toggle("show");
+        } else {
+          abrirModal("modalLogin");
+        }
+      });
+    </script>
+  </body>
 </html>
