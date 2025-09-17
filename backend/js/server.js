@@ -10,13 +10,17 @@ const {
     listarTrabalhos,
     buscarTrabalho,
     inserirTrabalho,
-    atualizarTrabalho
+    atualizarTrabalho    
 } = require('./controllers/trabalhoController');
 
 const {
     cadastrarUsuario,
-    loginUsuario
+    loginUsuario,
+    setupDatabase
 } = require('./controllers/usuarioController'); // controller sem bcrypt
+
+
+setupDatabase()
 
 // -------------------- Logs --------------------
 app.use((req, res, next) => {

@@ -65,4 +65,56 @@ async function loginUsuario({ email, senha }) {
     }
 }
 
-module.exports = { cadastrarUsuario, loginUsuario };
+async function setupDatabase() {
+    const conexao = await conectar();
+
+    let query = `
+        CREATE TABLE IF NOT EXISTS usuarios (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            nome VARCHAR(100) NOT NULL,
+            email VARCHAR(100) NOT NULL UNIQUE,
+            senha VARCHAR(100) NOT NULL,
+            tipo INT DEFAULT 0,
+            criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        ) ENGINE=INNODB
+    `;
+    await conexao.execute(query);
+    
+    query = `
+        CREATE TABLE IF NOT EXISTS pedidos_arte (
+            id INT PRIMARY KEY AUTO_INCREMENT,
+            id_usuario INT NOT NULL,
+            titulo VARCHAR(100) NOT NULL,
+            descricao TEXT NOT NULL,
+            referencia VARCHAR(255),
+            status ENUM(
+                'pendente',
+                'em andamento',
+                'concluído',
+                'cancelado'
+            ) DEFAULT 'pendente',
+            data_pedido DATETIME DEFAULT CURRENT_TIMESTAMP,
+            data_conclusao DATETIME DEFAULT NULL,
+            data_cancelamento DATETIME DEFAULT NULL,
+            FOREIGN KEY (id_usuario) REFERENCES usuarios(id)
+        )
+    `;
+    await conexao.execute(query);
+    
+    query = `
+        CREATE TABLE IF NOT EXISTS mensagens_pedidos (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            id_pedido INT NOT NULL,
+            id_usuario INT NOT NULL,
+            mensagem TEXT NOT NULL,
+            data_envio DATETIME DEFAULT CURRENT_TIMESTAMP,
+            FOREIGN KEY (id_pedido) REFERENCES pedidos_arte(id),
+            FOREIGN KEY (id_usuario) REFERENCES usuarios(id)
+        )
+    `;
+    await conexao.execute(query);
+    
+    await desconectar(conexao);
+}
+
+module.exports = { cadastrarUsuario, loginUsuario, setupDatabase };

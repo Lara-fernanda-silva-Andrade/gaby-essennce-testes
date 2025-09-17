@@ -3,13 +3,9 @@ const { conectar, desconectar } = require("../db");
 async function cadastrarUsuario(nome, email, senha) {
 
     const conexao = await conectar();
-
     let query = 'INSERT INTO jornais (nome, email, senha) VALUES (?,?,?)';
-    
     let parametros = [nome, email, senha];
-
     await conexao.execute (query, parametros);
-
     await desconectar (conexao)
 }
 

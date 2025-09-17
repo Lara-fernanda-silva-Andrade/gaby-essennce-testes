@@ -44,7 +44,7 @@ VALUES
   "https://exemplo.com/img/design-grafico.jpg"
 );
 
-CREATE TABLE usuarios (
+CREATE TABLE if NOT EXISTS usuarios (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(100) NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL,
@@ -52,7 +52,7 @@ CREATE TABLE usuarios (
     tipo ENUM('cliente', 'artista')
 );
  
-CREATE TABLE pedidos_arte (
+CREATE TABLE if NOT EXISTS pedidos_arte (
     id INT PRIMARY KEY AUTO_INCREMENT,
     id_usuario INT NOT NULL,
     titulo VARCHAR(100) NOT NULL,
@@ -69,7 +69,7 @@ CREATE TABLE pedidos_arte (
     data_cancelamento DATETIME DEFAULT NULL,
     FOREIGN KEY (id_usuario) REFERENCES usuarios (id)
 );
-CREATE TABLE mensagens_pedidos (
+CREATE TABLE if NOT EXISTS mensagens_pedidos (
     id INT AUTO_INCREMENT PRIMARY KEY,
     id_pedido INT NOT NULL,
     id_usuario INT NOT NULL,
