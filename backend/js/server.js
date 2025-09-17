@@ -99,6 +99,13 @@ function verificarAdmin(req, res, next) {
 
 // -------------------- Rotas Usuários --------------------
 
+// Logout de usuário
+app.post("/logout", (req, res) => {
+    // Como estamos usando localStorage no frontend, o logout é basicamente limpar o localStorage lá
+    // Aqui no backend, podemos apenas confirmar
+    res.status(200).json({ message: 'Logout realizado com sucesso!' });
+});
+
 // Cadastro de usuário (sem bcrypt)
 app.post("/register", async (req, res) => {
     try {
