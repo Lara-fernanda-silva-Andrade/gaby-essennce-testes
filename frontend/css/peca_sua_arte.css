@@ -1,10 +1,10 @@
 /* Estilo da página "Peça sua Arte" */
 body {
-  background-image: url(https://png.pngtree.com/background/20250102/original/pngtree-surreal-mountain-and-moon-scene-pc-wallpaper-picture-image_15736352.jpg);
+  background-image: url(../img/alone.gif); 
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  color: #fff; /* Texto principal branco para contrastar com o fundo */
+  color: #fff; 
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
