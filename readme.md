@@ -16,4 +16,17 @@
 
 📊 Arquitetura
   ---
-  
+  ![Arquitetura do Sistema](./arquitetura.png)
+
+ 📂 Estrutura do Projeto
+  ---
+- /frontend → Código do site (HTML, CSS, JS)
+- /backend → API em Node.js + Express
+  - /backend/js/server.js → Ponto de entrada
+  - /backend/js/db.js → Conexão com o banco
+  - /backend/js/controllers.js → Lógica de aplicação
+  - /backend/sql → Scripts SQL para criação de tabelas
+
+🔄 Diagrama de Sequência – Fluxo de Requisição
+---
+
