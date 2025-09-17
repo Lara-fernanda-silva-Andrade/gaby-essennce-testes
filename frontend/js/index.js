@@ -82,9 +82,7 @@ window.addEventListener("dblclick", (event) => {
   }
 
   async function loginUsuario() {
-
-    
-
+    const form = document.getElementById('login');
     const email = document.getElementById('loginEmail').value;
     const senha = document.getElementById('loginSenha').value;
   
