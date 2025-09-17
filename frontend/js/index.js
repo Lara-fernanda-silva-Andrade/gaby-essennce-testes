@@ -78,7 +78,7 @@ window.addEventListener("dblclick", (event) => {
   
     try {
       // Faz a requisição e guarda a resposta
-      const response = await fetch(`http://${URL}/register`, {
+      const response = await fetch(`https://${URL}/register`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ nome, email, senha, tipo: 0 })
@@ -110,7 +110,7 @@ window.addEventListener("dblclick", (event) => {
     }
   
     try {
-      const response = await fetch(`http://${URL}/login`, {
+      const response = await fetch(`https://${URL}/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, senha })
@@ -146,7 +146,7 @@ window.addEventListener("dblclick", (event) => {
   logoutBtn.addEventListener("click", async () => {
     const userId = localStorage.getItem("userId"); // ou id do usuário logado
     try {
-        await fetch(`http://${URL}/logout`, {
+        await fetch(`https://${URL}/logout`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ id: userId })
