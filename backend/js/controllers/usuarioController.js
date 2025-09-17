@@ -69,6 +69,17 @@ async function setupDatabase() {
     const conexao = await conectar();
 
     let query = `
+        CREATE Table if not exists trabalhos (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            titulo VARCHAR(255) NOT NULL,
+            descricao TEXT,
+            link VARCHAR(255),
+            image VARCHAR(255)
+        )
+    `;
+    await conexao.execute(query);
+
+    query = `
         CREATE TABLE IF NOT EXISTS usuarios (
             id INT AUTO_INCREMENT PRIMARY KEY,
             nome VARCHAR(100) NOT NULL,
