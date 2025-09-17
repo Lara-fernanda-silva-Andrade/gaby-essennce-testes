@@ -1,201 +1,215 @@
-/* Reset padrão */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:wght@300;400;700&display=swap");
 
-/* Estilo base */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #eabbff;
-    color: #2d3142;
-    text-align: center;
+  font-family: "Montserrat", sans-serif;
+  background-color: #f8f7fc;
+  background-image: radial-gradient(circle at 10% 10%, #d1c4e9 0%, transparent 40%),
+                    radial-gradient(circle at 85% 90%, #b26bff 0%, transparent 35%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
-
-/* Títulos principais */
-h1 {
-    font-size: 36px;
-    color: #6c63ff;
-    margin-bottom: 20px;
-    text-align: center;
-    font-weight: 700;
+main.container-sobre {
+  max-width: 1100px;
+  margin: 4rem auto 6rem auto;
+  padding-left: 90px;
+  padding-right: 2rem;
 }
 
-.gaby img {
-    max-width: 500px;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin: 20px auto;
-    display: block;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+.secao-apresentacao {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  margin-bottom: 5rem;
 }
 
-img:hover {
-    transform: scale(1.02);
-    margin: 25px auto 15px;
-    border-radius: 12px;
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+.foto-artista {
+  flex: 1;
+  max-width: 400px;
 }
 
+.foto-artista img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
 
-/* Texto normal */
-.resumo {
-    display: flex;
-    font-size: 18px;
-    margin-bottom: 22px;
-    color: #000000;
-    justify-content: center;
-    align-items: center;
-    bottom: 50px;
-    max-width: 1240px;
-    line-height: 1.7;
-    margin: 0px auto;
-    text-align: justify;
-    padding-bottom: 100px;
+.texto-apresentacao {
+  flex: 1.5;
+}
+
+.texto-apresentacao h1 {
+  font-family: "Lora", serif;
+  font-size: 2.8rem;
+  color: #2d3142;
+  margin-bottom: 1rem;
+}
+
+.texto-apresentacao p {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: #555;
+  line-height: 1.7;
+}
+
+.secao-detalhes {
+  display: flex;
+  gap: 2.5rem;
+}
+
+.coluna-detalhes {
+  flex: 1;
+}
+
+.coluna-detalhes h2 {
+  font-family: "Lora", serif;
+  color: #2d3142;
+  margin-bottom: 1rem;
+  border-left: 4px solid #5e60ce;
+  padding-left: 1rem;
+}
+
+.coluna-detalhes p {
+  font-size: 1rem;
+  text-align: justify;
+  line-height: 1.8;
+}
+
+.imagem-contexto {
+  width: 100%;
+  margin: 1.5rem 0;
+}
+
+.imagem-contexto img {
+  width: 100%;
+  border-radius: 12px;
+  display: block;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  main.container-sobre {
+    padding-left: 2rem;
+    margin-top: 2rem;
+  }
+
+  .secao-apresentacao {
     flex-direction: column;
-}
-
-.resumo p {
-    margin-bottom: 20px;
-}
-
-
-.old {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    align-items: center;
-}
-
-.old img {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    align-items: center;
-    width: 400px;
-}
-
-.conquistas {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    align-items: center;
-}
-
-.conquistas img {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    align-items: center;
-    width: 400px;
-}
-
-/* Linha decorativa */
-hr {
-    border: none;
-    height: 2px;
-    background: linear-gradient(to right, #6c63ff, #a0c4ff);
-    margin: 30px 0;
-    border-radius: 1px;
-}
-
-/* Responsivo para telas pequenas */
-@media (max-width: 600px) {
-    body {
-        padding: 20px 15px;
-    }
-
-    h1 {
-        font-size: 28px;
-    }
-
-    p {
-        font-size: 16px;
-    }
-}
-
-/* Menu Vertical */
-.menuvertical {
-    background-color: #ffffff;
-    width: 120px;
-    list-style: none;
-    padding-top: 20px;
-    margin: 0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    box-shadow: 5px 0 10px rgba(0, 0, 0, 0.2);
-    border-radius: 0 20px;
-}
-
-.menuvertical button {
-    margin: 20px 0;
-    color: #5e60ce;
-    font-weight: bold;
-    background-color: #dfe0ff;
-    border-radius: 5px;
-    padding: 12px 0;
-    /* ← AQUI você controla o "tamanho" do fundo */
-    width: 80%;
-    /* ← ou use width se quiser uma largura fixa */
     text-align: center;
+    gap: 2rem;
+  }
+
+  .secao-detalhes {
+    flex-direction: column;
+  }
+
+  .texto-apresentacao h1 {
+    font-size: 2.2rem;
+  }
 }
 
-.menuvertical button:hover {
-    color: #dfe0ff;
+/* --- Animações das Partículas --- */
+@keyframes float {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) translateX(20vw);
+    opacity: 0;
+  }
 }
 
-.local button {
-    background-color: #5e60ce;
-    color: #dfe0ff;
+@keyframes swayAndFloat {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% {
+    transform: translateY(-100vh) translateX(5vw) rotate(180deg);
+    opacity: 0;
+  }
 }
 
-/* Botão */
-button {
-    padding: 12px 20px;
-    background-color: #6c63ff;
-    border: none;
-    border-radius: 5px;
-    color: #fff;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin: 20px auto;
-    display: inline-block;
-    margin-top: 30%;
-    margin-right: 64.8%;
+/* --- Estilos das Partículas --- */
+.particle {
+  position: fixed;
+  left: 0;
+  bottom: -20px;
+  width: 15px;
+  height: 15px;
+  background-color: rgba(178, 107, 255, 0.3);
+  pointer-events: none;
+  animation: float 25s infinite linear;
+  z-index: -1;
 }
 
-button:hover {
-    background-color: #5e60ce;
+.particle:nth-child(1) {
+  left: 10%;
+  width: 10px;
+  height: 10px;
+  animation-duration: 20s;
+  animation-delay: -5s;
 }
 
-
-/* Rodapé fixo */
-footer {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    padding: 20px;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: #b7bcfa;
-    color: white;
-    text-align: center;
+/* Partícula CÍRCULO maior */
+.particle:nth-child(2) {
+  left: 40%;
+  width: 45px;
+  height: 45px;
+  animation-duration: 30s;
+  animation-delay: -10s;
+  border-radius: 50%;
+  background-color: rgba(94, 96, 206, 0.3);
 }
 
-footer a {
-    color: #5e60ce;
-    text-decoration: none;
+.particle:nth-child(3) {
+  left: 75%;
+  width: 18px;
+  height: 18px;
+  animation-duration: 18s;
+  animation-delay: -2s;
 }
 
-footer a:hover {
-    text-decoration: underline;
+/* Partícula QUADRADO (sem border-radius) */
+.particle:nth-child(4) {
+  left: 90%;
+  width: 8px;
+  height: 8px;
+  animation-name: float;
+  animation-duration: 15s;
+  animation-delay: -8s;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 0; /* Adicionei para deixar claro que é um quadrado */
+}
+
+/* Partícula TRIÂNGULO */
+.particle:nth-child(5) {
+  left: 25%;
+  width: 0;
+  height: 0;
+  background-color: transparent;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 20px solid #ac34db;
+  animation-name: swayAndFloat;
+  animation-duration: 25s;
+  animation-delay: -10s;
+}
+
+/* Partícula BRILHANTE */
+.particle:nth-child(6) {
+  left: 55%;
+  width: 12px;
+  height: 12px;
+  animation-name: swayAndFloat;
+  animation-duration: 22s;
+  animation-delay: -12s;
+  background-color: #d1c4e9;
+  box-shadow: 0 0 10px #d1c4e9, 0 0 20px #d1c4e9;
 }

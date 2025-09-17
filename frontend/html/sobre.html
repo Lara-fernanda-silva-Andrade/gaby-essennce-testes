@@ -3,126 +3,208 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sobre</title>
+    <title>Sobre | Gabriela Vaz</title>
+    <link rel="stylesheet" href="../css/global.css" />
     <link rel="stylesheet" href="../css/sobre.css" />
   </head>
 
   <body>
-    <h1>Gabriela Vaz:</h1>
-    <hr />
-    <div class="gaby">
-    <img src="../img/mainimg.png" alt="gaby" />
-    </div>
-    <hr />
-    <hr />
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
 
-    <h1>Sobre Gaby:</h1>
-    <div class="resumo">
-      <p>
-        Curta História: Sou Gabriela Vaz, artista surrealista moderna. Crio
-        desde que aprendi a segurar um lápis, e transformo ideias em imagens que
-        misturam sonho, emoção e identidade. Trabalho com clientes do mundo todo
-        desenvolvendo personagens únicos, e nas horas livres me dedico a
-        pinturas digitais que exploram o surreal de forma ousada e expressiva.
-      </p>
 
-      <p>
-        Minha história com a arte é antiga — desenho desde que me entendo por
-        gente. Desde pequena, meus professores e colegas diziam que desenhar era
-        meu “dom”, o que sempre me motivou a continuar praticando. Nasci no
-        Brasil, e quando eu tinha 5 anos, minha família se mudou para a Suíça
-        por causa do trabalho dos meus pais. Desde então, cresci entre culturas
-        diferentes, o que teve grande influência no meu olhar artístico. Hoje
-        moro na Suíça e continuo criando com base nas minhas raízes brasileiras,
-        misturando o surreal com o contemporâneo em cada traço.
-      </p>
-            <div class="old">
-        <img src="../img/old.png" alt="old" />
-        <img src="../img/old_2.png" alt="old_2" />
-        <img src="../img/old_3.png" alt="old_3" />
-      </div>
-      <p>
-        Quando eu tinha 15 anos, descobri a arte digital. Comecei a explorar uma
-        versão de teste do Photoshop e me apaixonei pelas possibilidades. Também
-        usei bastante programas simples de desenho online, como o Oekaki, que
-        lembravam o Paint, mas com uma comunidade artística envolvida. Passei a
-        dedicar praticamente todo meu tempo livre ao desenho — e no último ano
-        do ensino médio, percebi que não conseguiria seguir outra carreira que
-        não envolvesse arte. Decidi estudar animação e entrei em um curso na
-        cidade de Lausanne, aqui na Suíça. Estudei por um ano e, depois, me
-        mudei para Zurique para continuar meus estudos em artes visuais com foco
-        em narrativa e ilustração, onde concluí meu mestrado com um projeto
-        chamado “Vertigem das Formas”, uma animação experimental sobre o
-        subconsciente. Após me formar, comecei a trabalhar como freelancer.
-        Peguei projetos diversos — desde ilustração promocional até arte para
-        jogos e animação. Com o tempo, fui me especializando em design de
-        personagens, que é onde realmente encontrei meu espaço criativo. Já
-        colaborei com marcas e estúdios internacionais, e ao mesmo tempo, sempre
-        reservei tempo para trabalhar em minhas pinturas e séries autorais —
-        especialmente obras digitais com forte influência surrealista. Em 2020,
-        lancei meu primeiro artbook independente: “Delírios de Luz”, com apoio
-        de uma campanha de financiamento coletivo que superou as metas em poucos
-        dias. Depois vieram “Fragmentos do Inconsciente” e “A Forma do Sonho”,
-        uma trilogia de livros que, além das artes, trazem reflexões sobre o
-        processo criativo e técnicas que uso no meu trabalho. Compartilhar esse
-        conhecimento tem sido tão gratificante quanto criar — acredito que
-        desmistificar o processo artístico pode inspirar outras pessoas a
-        encontrarem sua própria linguagem visual.
-      </p>
-      <div class="conquistas">
-        <img src="../img/book.png" alt="livro" />
-        <img src="../img/expo.png" alt="expo" />
-        <img src="../img/convencao.png" alt="convensao" />
-      </div>
-      <p>
-        Com o tempo, comecei a dar workshops e palestras. Já participei de
-        eventos, fiz demonstrações ao vivo e viajei para vários países para
-        ministrar oficinas interativas para artistas digitais iniciantes. Foi
-        nesses encontros que percebi o quanto adoro ensinar, e por isso criei
-        uma página no Patreon, onde compartilho dicas, tutoriais e conteúdos
-        exclusivos sobre meu processo artístico. Também lancei uma biblioteca
-        gratuita de recursos chamada Escola Digital de Arte da Gabriela Vaz,
-        para ajudar quem ainda não sabe por onde começar no mundo da arte
-        digital. Atualmente, moro na Suíça, onde vivo com meu parceiro criativo,
-        que também ajudou a desenvolver meu site! Quer saber mais? Dá uma olhada
-        no meu FAQ, onde respondo dúvidas sobre minha arte, carreira e dou
-        conselhos para artistas que estão começando.
-      </p>
-    </div>
+    <!-- Menu lateral -->
     <header>
       <section class="menuvertical" id="menuvertical">
+        <div class="menu-logo">
+          <img src="../img/logo.png" alt="Essência de Gaby" />
+        </div>
+
         <nav>
-          <button onclick="location.href='index.html'">&star;Home</button>
-          <button onclick="location.href='portifolio.html'">
-            &star;Portifólio
+          <button aria-label="Início" onclick="location.href='index.html'">
+            <!-- Lua (Home) -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              width="22"
+              height="22"
+            >
+              <path
+                d="M21 12.79A9 9 0 0111.21 3c-.17 0-.34 0-.51.02a7 7 0 109.28 9.77c.02-.17.02-.34.02-.51z"
+              />
+            </svg>
+            <span>Home</span>
           </button>
-          <button onclick="location.href='peca_sua_arte.html'">&star;Arte Delivery</button>
-          <div class="local" id="local"><button>&star;Sobre</button></div>
-          <button id="btnPainel" style="display:none;" onclick="location.href='painel.html'">&star; Painel</button>
+
+          <button
+            onclick="location.href='portifolio.html'"
+            aria-label="Portfólio"
+          >
+            <!-- Pincel -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+              width="22"
+              height="22"
+            >
+              <path
+                d="M2 22c0-4.97 4.03-9 9-9h1v1c0 4.97-4.03 9-9 9H2zm12.5-9.5L20 7l-3-3-5.5 5.5V12h3z"
+              />
+            </svg>
+            <span>Portfólio</span>
+          </button>
+
+          <button
+            onclick="location.href='peca_sua_arte.html'"
+            aria-label="Arte Delivery"
+          >
+            <!-- Caixa mágica -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+              width="22"
+              height="22"
+            >
+              <path
+                d="M12 2l9 4.5-9 4.5L3 6.5 12 2zm9 11l-9 4.5v-9l9-4.5v9zm-18 0v-9l9 4.5v9L3 13z"
+              />
+              <circle cx="12" cy="20" r="2" />
+            </svg>
+            <span>Arte Delivery</span>
+          </button>
+
+          <button onclick="location.href='sobre.html'" aria-label="Sobre">
+            <!-- Olho surreal -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+              width="22"
+              height="22"
+            >
+              <path
+                d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17a5 5 0 110-10 5 5 0 010 10z"
+              />
+              <circle cx="12" cy="12" r="2.5" />
+            </svg>
+            <span>Sobre</span>
+          </button>
+
+          <button
+            id="btnPainel"
+            style="display: none"
+            onclick="location.href='painel.html'"
+            aria-label="Painel"
+          >
+            <!-- Quebra-cabeça -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+              width="22"
+              height="22"
+            >
+              <path
+                d="M22 13h-3v-2h3v2zm-4 0h-2v-2h2v2zm-3 0H7V7h8v6zm-9 0H4v-2h2v2zm-3 0H2v-2h1v2z"
+              />
+            </svg>
+            <span>Painel</span>
+          </button>
         </nav>
       </section>
     </header>
 
-    <footer>
-      <a href="https://wa.me/553158589656">📞(33) 95671-8762</a>
-      <a href="susto.html">✖️ @essenciadegaby</a>
+    <main>
+          <main class="container-sobre">
+      <section class="secao-apresentacao">
+        <div class="foto-artista">
+          <img
+            src="../img/expo_young.png"
+            alt="Retrato da artista Gaby"
+          />
+        </div>
+        <div class="texto-apresentacao">
+          <h1>Olá, sou a Gaby.</h1>
+          <p>
+            "Sou Gabriela Vaz, artista surrealista moderna. Crio desde que
+            aprendi a segurar um lápis, e transformo ideias em imagens que
+            misturam sonho, emoção e identidade. Trabalho com clientes do mundo
+            todo desenvolvendo personagens únicos, e nas horas livres me dedico
+            a pinturas digitais que exploram o surreal de forma ousada e
+            expressiva."
+          </p>
+        </div>
+      </section>
+
+      <section class="secao-detalhes">
+        <div class="coluna-detalhes">
+          <h2>Minha Jornada</h2>
+          <p>
+            Minha história com a arte é antiga — desenho desde que me entendo
+            por gente. Desde pequena, meus professores e colegas diziam que
+            desenhar era meu “dom”, o que sempre me motivou a continuar
+            praticando. Nasci no Brasil, e quando eu tinha 5 anos, minha família
+            se mudou para a Suíça por causa do trabalho dos meus pais.
+          </p>
+
+          <div class="imagem-contexto">
+            <img src="../img/old_2.png" alt="Gaby trabalhando em seu ateliê" />
+          </div>
+
+          <p>
+            Desde então, cresci entre culturas diferentes, o que teve grande
+            influência no meu olhar artístico. Hoje moro na Suíça e continuo
+            criando com base nas minhas raízes brasileiras, misturando o surreal
+            com o contemporâneo em cada traço.
+          </p>
+        </div>
+        <div class="coluna-detalhes">
+          <h2>Inspiração e Processo</h2>
+          <p>
+            Quando eu tinha 15 anos, descobri a arte digital. Comecei a explorar
+            uma versão de teste do Photoshop e me apaixonei pelas
+            possibilidades.
+          </p>
+
+          <div class="imagem-contexto">
+            <img
+              src="../img/old_3.png"
+              alt="Close-up de uma pintura de Gaby com texturas"
+            />
+          </div>
+
+          <p>
+            Também usei bastante programas simples de desenho online, como o
+            Oekaki, que lembravam o Paint, mas com uma comunidade artística
+            envolvida.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+      <a href="https://wa.me/553158589656" class="footer-link"
+        >📞 (33) 95671-8762</a
+      >
+      <a href="susto.html" class="footer-link">✖️ @essenciadegaby</a>
     </footer>
+
+    <!-- Scripts -->
+    <script>
+      function atualizarPainel() {
+        const tipo = localStorage.getItem("tipo");
+        const btnPainel = document.getElementById("btnPainel");
+        btnPainel.style.display = tipo === "1" ? "inline-block" : "none";
+      }
+      window.addEventListener("DOMContentLoaded", atualizarPainel);
+    </script>
   </body>
-  <script>
-  // Função para atualizar a visibilidade do botão Painel
-  function atualizarPainel() {
-    const tipo = localStorage.getItem("tipo"); // pega o tipo do usuário
-    const btnPainel = document.getElementById("btnPainel");
-
-    if (tipo === "1") {
-      btnPainel.style.display = "inline-block"; // exibe botão se tipo 1
-    } else {
-      btnPainel.style.display = "none"; // oculta se não for tipo 1
-    }
-  }
-
-  // Executa assim que o conteúdo da página carrega
-  window.addEventListener("DOMContentLoaded", atualizarPainel);
-</script>
-
 </html>
