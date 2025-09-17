@@ -69,7 +69,6 @@ window.addEventListener("dblclick", (event) => {
     const nome = document.getElementById('nome').value;
     const email = document.getElementById('email').value;
     const senha = document.getElementById('senha').value;
-    const tipo = document.getElementById('tipo').value;
   
     if (!nome || !email || !senha) {
       alert('Por favor, preencha todos os campos!');
@@ -110,7 +109,7 @@ window.addEventListener("dblclick", (event) => {
     }
   
     try {
-      const response = await fetch(`https://${URL}/login`, {
+      const response = await fetch(`http://${URL}/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, senha })
@@ -146,7 +145,7 @@ window.addEventListener("dblclick", (event) => {
   logoutBtn.addEventListener("click", async () => {
     const userId = localStorage.getItem("userId"); // ou id do usuário logado
     try {
-        await fetch(`https://${URL}/logout`, {
+        await fetch(`http://${URL}/logout`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ id: userId })
