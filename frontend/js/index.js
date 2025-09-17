@@ -18,22 +18,7 @@ window.onclick = function (event) {
     }
 }
 
-// Validação do formulário de login
-document.getElementById('loginForm').addEventListener('submit', function (e) {
-    e.preventDefault();
-    const email = document.getElementById('loginEmail').value.trim();
-    const senha = document.getElementById('loginSenha').value.trim();
-    const mensagem = document.getElementById('loginMessage');
 
-    if (email === "teste@exemplo.com" && senha === "123456") {
-        mensagem.style.color = "green";
-        mensagem.textContent = "Login realizado com sucesso!";
-        setTimeout(() => fecharModal('modalLogin'), 1500);
-    } else {
-        mensagem.style.color = "red";
-        mensagem.textContent = "E-mail ou senha incorretos!";
-    }
-});
 
 document.querySelectorAll(".alternar").forEach(btn => {
   btn.addEventListener("click", () => {
@@ -109,7 +94,7 @@ window.addEventListener("dblclick", (event) => {
     }
   
     try {
-      const response = await fetch(`http://${URL}/login`, {
+      const response = await fetch(`https://${URL}/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, senha })
@@ -123,6 +108,8 @@ window.addEventListener("dblclick", (event) => {
       localStorage.setItem("nome", resultado.usuario.nome);
 
       localStorage.setItem("tipo", resultado.usuario.tipo);
+
+      localStorage.setItem("userId", resultado.usuario.id);
   
       alert('Login realizado com sucesso!');
       fecharModal('modalLogin');
@@ -143,17 +130,7 @@ window.addEventListener("dblclick", (event) => {
   }
 
   logoutBtn.addEventListener("click", async () => {
-    const userId = localStorage.getItem("userId"); // ou id do usuário logado
-    try {
-        await fetch(`http://${URL}/logout`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ id: userId })
-        });
-    } catch (err) {
-        console.error(err);
-    }
-
+    // Removendo fetch para logout pois não há rota no backend para isso
     localStorage.removeItem("nome");
     localStorage.removeItem("tipo");
     localStorage.removeItem("userId");
