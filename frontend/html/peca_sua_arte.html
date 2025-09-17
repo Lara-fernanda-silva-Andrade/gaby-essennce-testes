@@ -1,60 +1,97 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Peça sua Arte</title>
-    <link rel="stylesheet" href="../css/peca_sua_arte.css">
-    <script src="../js/peca_sua_arte.js"></script>
-</head>
-<body>
-    <main>
-        <h1>Peça sua Arte</h1>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Peça sua Arte | Essência de Gaby</title>
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/peca_sua_arte.css" />
+  </head>
+  <body>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
 
-        <form id="pedidoForm" class="pedidoForm">
-            <label for="titulo">Título do Pedido:</label>
-            <input type="text" id="titulo" name="titulo" required>
+    <header>
+      <section class="menuvertical" id="menuvertical">
+        <div class="menu-logo">
+          <img src="../img/logo.png" alt="Essência de Gaby" />
+        </div>
+        <nav>
+          <button aria-label="Início" onclick="location.href='index.html'">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M21 12.79A9 9 0 0111.21 3c-.17 0-.34 0-.51.02a7 7 0 109.28 9.77c.02-.17.02-.34.02-.51z"/></svg>
+            <span>Home</span>
+          </button>
+          <button onclick="location.href='portifolio.html'" aria-label="Portfólio">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" width="22" height="22"><path d="M2 22c0-4.97 4.03-9 9-9h1v1c0 4.97-4.03 9-9 9H2zm12.5-9.5L20 7l-3-3-5.5 5.5V12h3z"/></svg>
+            <span>Portfólio</span>
+          </button>
+          <button class="active" onclick="location.href='peca_sua_arte.html'" aria-label="Arte Delivery">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" width="22" height="22"><path d="M12 2l9 4.5-9 4.5L3 6.5 12 2zm9 11l-9 4.5v-9l9-4.5v9zm-18 0v-9l9 4.5v9L3 13z"/><circle cx="12" cy="20" r="2" /></svg>
+            <span>Arte Delivery</span>
+          </button>
+          <button onclick="location.href='sobre.html'" aria-label="Sobre">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" width="22" height="22"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17a5 5 0 110-10 5 5 0 010 10z"/><circle cx="12" cy="12" r="2.5" /></svg>
+            <span>Sobre</span>
+          </button>
+          <button id="btnPainel" style="display: none" onclick="location.href='painel.html'" aria-label="Painel">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" width="22" height="22"><path d="M22 13h-3v-2h3v2zm-4 0h-2v-2h2v2zm-3 0H7V7h8v6zm-9 0H4v-2h2v2zm-3 0H2v-2h1v2z"/></svg>
+            <span>Painel</span>
+          </button>
+        </nav>
+      </section>
+    </header>
 
-            <label for="tipo">Tipo de Arte:</label>
-            <select id="tipo" name="tipo" required>
-                <option value="pintura">Pintura</option>
-                <option value="retrato">Retrato</option>
-                <option value="desenho">Desenho Digital</option>
-                <!-- Adicionar mais opções conforme necessário -->
-            </select>
-
-            <label for="formato">Formato:</label>
-            <select id="formato" name="formato" required>
-                <option value="A4">A4</option>
-                <option value="A3">A3</option>
-                <option value="A5">A5</option>
-                <!-- Adicionar mais opções conforme necessário -->
-            </select>
-
-            <label for="descricao">Descrição:</label>
-            <textarea id="descricao" name="descricao" required></textarea>
-
-            <label for="dataEntrega">Data de Entrega:</label>
-            <input type="date" id="dataEntrega" name="dataEntrega" required>
-
-            <button type="submit">Enviar Pedido</button>
-        </form>
-
-        <p><a href="meus_pedidos.html">Ver meus pedidos</a></p>
-
-        <section class="menuvertical" id="menuvertical">
-            <nav>
-              <button onclick="location.href='index.html'">&star;Home</button>
-              <button onclick="location.href='portifolio.html'">
-                &star;Portifólio
-              </button>
-              <div class="local" id="local"><button>&star;Arte Delivery</button></div>
-              <button onclick="location.href='sobre.html'">&star;Sobre</button>
-              <button id="btnPainel" style="display:none;" onclick="location.href='painel.html'">&star; Painel</button>
-            </nav>
-          </section>
-
+    <main class="container-arte">
+      <h1>Peça sua Arte Personalizada</h1>
+      <p>Transforme sua ideia em uma obra de arte surreal. Clique no botão abaixo para preencher os detalhes do seu pedido.</p>
+      <button id="abrirModalBtn" class="btn-principal">Fazer um Pedido</button>
+      <a href="meus_pedidos.html" class="link-secundario">Ver meus pedidos</a>
     </main>
-    
-</body>
+
+    <div id="pedidoModal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h2>Detalhes da sua Arte</h2>
+        <form id="pedidoForm" class="pedidoForm">
+          <label for="titulo">Título do Pedido:</label>
+          <input type="text" id="titulo" name="titulo" required placeholder="Ex: Retrato surrealista com elementos..." />
+
+          <label for="tipo">Tipo de Arte:</label>
+          <select id="tipo" name="tipo" required>
+            <option value="pintura_digital">Pintura Digital</option>
+            <option value="retrato_personalizado">Retrato Personalizado</option>
+            <option value="personagem_original">Criação de Personagem</option>
+            <option value="outro">Outro</option>
+          </select>
+
+          <label for="formato">Formato:</label>
+          <select id="formato" name="formato" required>
+            <option value="arquivo_digital">Arquivo Digital (Alta Resolução)</option>
+            <option value="a4">Impressão A4 (21x29.7cm)</option>
+            <option value="a3">Impressão A3 (29.7x42cm)</option>
+            <option value="a5">Impressão A5 (14.8x21cm)</option>
+          </select>
+
+          <label for="descricao">Descreva sua ideia:</label>
+          <textarea id="descricao" name="descricao" required placeholder="Seja o mais detalhado possível. Fale sobre cores, estilo, sentimentos e referências que você tem em mente."></textarea>
+
+          <label for="dataEntrega">Data de Entrega Desejada:</label>
+          <input type="date" id="dataEntrega" name="dataEntrega" required />
+
+          <button type="submit" class="btn-submit">Enviar Pedido</button>
+        </form>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <a href="https://wa.me/553158589656" class="footer-link">📞 (33) 95671-8762</a>
+      <a href="susto.html" class="footer-link">✖️ @essenciadegaby</a>
+    </footer>
+
+    <script src="../js/peca_sua_arte.js" defer></script>
+  </body>
 </html>
