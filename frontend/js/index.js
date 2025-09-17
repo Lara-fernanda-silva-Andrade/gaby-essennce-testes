@@ -1,4 +1,6 @@
 // JS do modal
+const URL = "gaby-essennce-production.up.railway.app"
+
 function abrirModal(id) {
     const modal = document.getElementById(id);
     if (modal) modal.style.display = "block";
@@ -76,7 +78,7 @@ window.addEventListener("dblclick", (event) => {
   
     try {
       // Faz a requisição e guarda a resposta
-      const response = await fetch('http://localhost:3000/register', {
+      const response = await fetch(`http://${URL}/register`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ nome, email, senha, tipo: 0 })
@@ -108,7 +110,7 @@ window.addEventListener("dblclick", (event) => {
     }
   
     try {
-      const response = await fetch('http://localhost:3000/login', {
+      const response = await fetch(`http://${URL}/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, senha })
@@ -144,7 +146,7 @@ window.addEventListener("dblclick", (event) => {
   logoutBtn.addEventListener("click", async () => {
     const userId = localStorage.getItem("userId"); // ou id do usuário logado
     try {
-        await fetch(`http://localhost:3000/logout`, {
+        await fetch(`http://${URL}/logout`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ id: userId })

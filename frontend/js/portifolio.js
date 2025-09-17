@@ -1,4 +1,7 @@
+
+const URL = "gaby-essennce-production.up.railway.app"
 let trabalhos = [];
+
 async function exibirTodosTrabalhos() {
     const container = document.getElementById("trabalho-container");
     if (!container) return;
@@ -6,7 +9,7 @@ async function exibirTodosTrabalhos() {
     container.innerHTML = "<p>Carregando projetos...</p>";
 
     try {
-        const resposta = await fetch("http://localhost:3000/trabalhos");
+        const resposta = await fetch(`http://${URL}/trabalhos`);
         if (!resposta.ok) throw new Error("Erro ao carregar trabalhos");
 
         trabalhos = await resposta.json();
@@ -144,7 +147,7 @@ window.addEventListener("dblclick", (event) => {
   
     try {
       // Faz a requisição e guarda a resposta
-      const response = await fetch('http://localhost:3000/register', {
+      const response = await fetch(`http://${URL}/register`, { 
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ nome, email, senha, tipo: 0 })
@@ -176,7 +179,7 @@ window.addEventListener("dblclick", (event) => {
     }
   
     try {
-      const response = await fetch('http://localhost:3000/login', {
+      const response = await fetch(`http://${URL}/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, senha })
@@ -212,7 +215,7 @@ window.addEventListener("dblclick", (event) => {
   logoutBtn.addEventListener("click", async () => {
     const userId = localStorage.getItem("userId"); // ou id do usuário logado
     try {
-        await fetch(`http://localhost:3000/logout`, {
+        await fetch(`http://${URL}/logout`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ id: userId })
