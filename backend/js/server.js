@@ -1,16 +1,32 @@
 const cors = require('cors');
 const express = require('express');
+const multer = require('multer');
+const path = require('path');
 const app = express();
 
 app.use(cors());
 app.use(express.json());
+
+// Configuração do multer para upload de imagens
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, path.join(__dirname, '../../frontend/img')); // Salva na pasta frontend/img
+    },
+    filename: (req, file, cb) => {
+        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+        cb(null, uniqueSuffix + path.extname(file.originalname));
+    }
+});
+
+const upload = multer({ storage: storage });
 
 // -------------------- Controllers --------------------
 const {
     listarTrabalhos,
     buscarTrabalho,
     inserirTrabalho,
-    atualizarTrabalho    
+    atualizarTrabalho,
+    deletarTrabalho
 } = require('./controllers/trabalhoController');
 
 const {
@@ -61,11 +77,11 @@ app.get("/trabalho/:id", async (req, res) => {
 
 app.post("/trabalhos", async (req, res) => {
     try {
-        const { titulo, descricao, link, image } = req.body;
-        if (!titulo || !descricao || !link || !image) {
+        const { titulo, descricao, link } = req.body;
+        if (!titulo || !descricao || !link) {
             return res.status(400).json({ mensagem: "Todos os campos são obrigatórios!" });
         }
-        const novoTrabalho = await inserirTrabalho({ titulo, descricao, link, image });
+        const novoTrabalho = await inserirTrabalho({ titulo, descricao, link, image: link });
         res.status(201).json(novoTrabalho);
     } catch (err) {
         console.error(err);
@@ -84,6 +100,21 @@ app.put("/trabalho/:id", async (req, res) => {
         }
     } catch (err) {
         console.error("Erro no PUT /trabalho/:id ->", err);
+        res.status(500).json({ mensagem: err.message });
+    }
+});
+
+app.delete("/trabalho/:id", async (req, res) => {
+    try {
+        const { id } = req.params;
+        const deletado = await deletarTrabalho(id);
+        if (deletado) {
+            return res.json({ mensagem: "Trabalho deletado com sucesso!" });
+        } else {
+            return res.status(404).json({ mensagem: "Trabalho não encontrado!" });
+        }
+    } catch (err) {
+        console.error("Erro no DELETE /trabalho/:id ->", err);
         res.status(500).json({ mensagem: err.message });
     }
 });

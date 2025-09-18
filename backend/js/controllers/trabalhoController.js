@@ -51,10 +51,18 @@ async function atualizarTrabalho(id, trabalho) {
     }
 }
 
+async function deletarTrabalho(id) {
+    const conexao = await conectar();
+    const query = 'DELETE FROM trabalhos WHERE id = ?';
+    const [resultado] = await conexao.execute(query, [id]);
+    await desconectar(conexao);
+    return resultado.affectedRows > 0; // true se deletou
+}
+
 module.exports = {
     listarTrabalhos,
     buscarTrabalho,
     inserirTrabalho,
     atualizarTrabalho,
-    
+    deletarTrabalho
 };
