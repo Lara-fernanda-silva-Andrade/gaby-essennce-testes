@@ -11,7 +11,7 @@
   - **Frontend:** [GitHub Pages](https://seu-usuario.github.io/seu-repo/)  
   - **Backend & DB:** [Railway](https://seu-backend.up.railway.app) 
     
-- Site: [Gaby - Essennce](https://farestwindow98.github.io/gaby-essennce/frontend/html/index.html)
+- Site: [Gaby - Essennce-teste](https://lara-fernanda-silva-andrade.github.io/gaby-essennce-testes/)
 
 
 ## 📊 Arquitetura
@@ -175,6 +175,7 @@ No Railway, configure as seguintes variáveis:
 
 - git config --global user.email "you@example.com"
 - git config --global user.name "Your Name"
+
 
 
 
