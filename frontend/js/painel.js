@@ -58,11 +58,14 @@ document.addEventListener('DOMContentLoaded', function() {
             const div = document.createElement('div');
             div.classList.add('trabalho-item');
             div.style.animationDelay = `${index * 0.1}s`;
+
+            // Ajuste: carregar imagem do servidor
+            const imageUrl = trabalho.image ? `${URL}/img/${trabalho.image}` : '';
+
             div.innerHTML = `
                 <h4>${trabalho.titulo}</h4>
                 <p>${trabalho.descricao}</p>
-                ${trabalho.link ? `<p><a href="${trabalho.link}" target="_blank">${trabalho.link}</a></p>` : ''}
-                <img src="${trabalho.image}" alt="${trabalho.titulo}" />
+                ${imageUrl ? `<img src="${imageUrl}" alt="${trabalho.titulo}" />` : ''}
                 <div style="display: flex; gap: 10px; margin-top: 15px;">
                     <button data-id="${trabalho.id}" class="editar-btn">✏️ Editar</button>
                     <button data-id="${trabalho.id}" class="deletar-btn">🗑️ Excluir</button>
@@ -79,7 +82,6 @@ document.addEventListener('DOMContentLoaded', function() {
             btn.addEventListener('click', async (e) => {
                 const id = e.target.getAttribute('data-id');
 
-                // Modal de confirmação moderno
                 if (confirm('🗑️ Tem certeza que deseja excluir este trabalho?\n\nEsta ação não pode ser desfeita.')) {
                     try {
                         const response = await fetch(`${URL}/trabalho/${id}`, {
@@ -87,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         });
                         if (response.status === 404) {
                             showMessage('⚠️ Trabalho não encontrado. Talvez já tenha sido deletado.', 'error');
-                            fetchTrabalhos(); // Recarregar lista
+                            fetchTrabalhos();
                             return;
                         }
                         if (!response.ok) throw new Error('Erro ao deletar trabalho');
@@ -106,7 +108,6 @@ document.addEventListener('DOMContentLoaded', function() {
             btn.addEventListener('click', async (e) => {
                 const id = e.target.getAttribute('data-id');
 
-                // Buscar dados do trabalho para editar
                 try {
                     const response = await fetch(`${URL}/trabalho/${id}`);
                     if (!response.ok) throw new Error('Erro ao buscar trabalho');
@@ -114,7 +115,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     preencherFormulario(trabalho);
                     editarId = id;
 
-                    // Scroll para o formulário
                     document.getElementById('novo-trabalho-form').scrollIntoView({
                         behavior: 'smooth',
                         block: 'center'
@@ -129,21 +129,16 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Variável para controlar edição
     let editarId = null;
 
-    // Função para preencher formulário com dados para edição
     function preencherFormulario(trabalho) {
         document.getElementById('titulo').value = trabalho.titulo;
         document.getElementById('descricao').value = trabalho.descricao;
-        document.getElementById('link').value = trabalho.link || '';
-        // Imagem não será preenchida por segurança, usuário deve enviar nova se quiser alterar
+        // Imagem não será preenchida automaticamente
 
-        // Mudar texto do botão
         const submitBtn = document.querySelector('#trabalhoForm button[type="submit"]');
         submitBtn.textContent = '💾 Atualizar Trabalho';
 
-        // Adicionar botão cancelar
         if (!document.getElementById('cancelar-btn')) {
             const cancelBtn = document.createElement('button');
             cancelBtn.type = 'button';
@@ -157,7 +152,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Função para cancelar edição
     function cancelarEdicao() {
         editarId = null;
         document.getElementById('trabalhoForm').reset();
@@ -171,7 +165,7 @@ document.addEventListener('DOMContentLoaded', function() {
         showMessage('📝 Edição cancelada.');
     }
 
-    // Evento submit do formulário
+    // 🚀 Evento submit do formulário (AJUSTADO PARA UPLOAD)
     const form = document.getElementById('trabalhoForm');
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -182,37 +176,27 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const titulo = document.getElementById('titulo').value;
         const descricao = document.getElementById('descricao').value;
-        const link = document.getElementById('link').value;
+        const imagem = document.getElementById('imagem').files[0];
 
         try {
             let response;
+            const formData = new FormData();
+            formData.append('titulo', titulo);
+            formData.append('descricao', descricao);
+
+            if (imagem) {
+                formData.append('imagem', imagem);
+            }
+
             if (editarId) {
-                // Atualizar trabalho
                 response = await fetch(`${URL}/trabalho/${editarId}`, {
                     method: 'PUT',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        titulo,
-                        descricao,
-                        link,
-                        image: link
-                    })
+                    body: formData
                 });
             } else {
-                // Criar novo trabalho
                 response = await fetch(`${URL}/trabalhos`, {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        titulo,
-                        descricao,
-                        link,
-                        image: link
-                    })
+                    body: formData
                 });
             }
 
@@ -248,6 +232,5 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Inicializa carregando trabalhos
     fetchTrabalhos();
 });
