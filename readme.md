@@ -1,4 +1,4 @@
-# 🎨 Projeto Gaby Essence  
+# 🎨 Projeto Gaby Essennce  
 
 - Site/portfólio da artista freelancer Gaby. Permite que ela publique suas artes, organize e acompanhe pedidos, além de gerenciar o fluxo de trabalho.  
 - Usuários podem navegar pelo portfólio, ver detalhes das obras e entrar em contato pelo WhatsApp.
@@ -175,6 +175,7 @@ No Railway, configure as seguintes variáveis:
 
 - git config --global user.email "you@example.com"
 - git config --global user.name "Your Name"
+
 
 
 
