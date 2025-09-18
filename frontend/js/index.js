@@ -1,5 +1,5 @@
-// JS do modal
-const URL = "gaby-essennce-production.up.railway.app"
+const URL = "https://gaby-essennce-production.up.railway.app"
+// const URL = "http://localhost:3000"
 
 function abrirModal(id) {
     const modal = document.getElementById(id);
@@ -62,7 +62,7 @@ window.addEventListener("dblclick", (event) => {
   
     try {
       // Faz a requisição e guarda a resposta
-      const response = await fetch(`https://${URL}/register`, {
+      const response = await fetch(`${URL}/register`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ nome, email, senha, tipo: 0 })
@@ -92,7 +92,7 @@ window.addEventListener("dblclick", (event) => {
     }
   
     try {
-      const response = await fetch(`https://${URL}/login`, {
+      const response = await fetch(`${URL}/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, senha })
