@@ -1,4 +1,4 @@
-const URL = "https://gaby-essennce-production.up.railway.app";
+const URL = "https://gaby-essennce-testes-production.up.railway.app";
 
 document.addEventListener('DOMContentLoaded', function() {
     // Função para mostrar mensagens
