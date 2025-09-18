@@ -14,7 +14,7 @@ const storage = multer.diskStorage({
     },
     filename: (req, file, cb) => {
         const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
-        cb(null, uniqueSuffix + path.extname(file.originalname));
+        cb(null, uniqueSuffix + path.extname(file.originalname)); // Define um nome único para a imagem
     }
 });
 
@@ -75,13 +75,25 @@ app.get("/trabalho/:id", async (req, res) => {
     }
 });
 
-app.post("/trabalhos", async (req, res) => {
+// Modificação do endpoint POST /trabalhos para aceitar o upload de imagem
+app.post("/trabalhos", upload.single('image'), async (req, res) => {
     try {
         const { titulo, descricao, link } = req.body;
         if (!titulo || !descricao || !link) {
             return res.status(400).json({ mensagem: "Todos os campos são obrigatórios!" });
         }
-        const novoTrabalho = await inserirTrabalho({ titulo, descricao, link, image: link });
+
+        // Verifica se a imagem foi enviada, se sim, pega o caminho dela, senão usa o link
+        const imagePath = req.file ? '/img/' + req.file.filename : link;
+
+        // Inserção do trabalho no banco de dados com o caminho da imagem
+        const novoTrabalho = await inserirTrabalho({
+            titulo,
+            descricao,
+            link,
+            image: imagePath // Salva o caminho da imagem no banco
+        });
+
         res.status(201).json(novoTrabalho);
     } catch (err) {
         console.error(err);
@@ -89,10 +101,16 @@ app.post("/trabalhos", async (req, res) => {
     }
 });
 
-app.put("/trabalho/:id", async (req, res) => {
+// Endpoint PUT /trabalho/:id para editar o trabalho (também permite editar imagem)
+app.put("/trabalho/:id", upload.single('image'), async (req, res) => {
     try {
         const { id } = req.params;
-        const atualizado = await atualizarTrabalho(id, req.body);
+        const { titulo, descricao, link } = req.body;
+
+        const imagePath = req.file ? '/img/' + req.file.filename : req.body.image; // Usar a imagem enviada ou a já existente
+
+        const atualizado = await atualizarTrabalho(id, { titulo, descricao, link, image: imagePath });
+        
         if (atualizado) {
             return res.json({ mensagem: "Trabalho atualizado com sucesso!" });
         } else {
